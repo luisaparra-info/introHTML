@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web de Lenguajes de Marcas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan a una nueva línea si no hay suficiente espacio */
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #ecf0f1;
+            padding: 10px;
+            overflow: hidden; /* Clearfix para manejar el float */
+            width: 100%;
+            box-sizing: border-box; /* Ajusta el ancho para incluir padding */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+            padding: 5px;
+            border-radius: 5px;
+            transition: color 0.3s; /* Agregamos una transición para suavizar el cambio de color */
+        }
+
+        nav a:hover {
+            color: #fff; /* Cambiamos el color al posicionar el ratón sobre el enlace */
+            background-color: #3498db; /* Opcional: Cambiamos el fondo al posicionar el ratón sobre el enlace */
+        }
+
+        article {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            flex: 1; /* Ocupa el espacio restante */
+            box-sizing: border-box; /* Ajusta el ancho para incluir padding */
+            margin-right: 20px; /* Añadido margen derecho para separar del aside */
+        }
+
+        aside {
+            width: 30%;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-sizing: border-box; /* Ajusta el ancho para incluir padding */
+        }
+
+        aside h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .anuncio {
+            background-color: #d1f2eb;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box; /* Ajusta el ancho para incluir padding */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lenguajes de Marcas</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#html">HTML</a></li>
+            <li><a href="#css">CSS</a></li>
+            <li><a href="#xml">XML</a></li>
+            <li><a href="#xpath">XPath</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <section id="html">
+            <h2>HTML</h2>
+            <p>HTML (HyperText Markup Language) es un lenguaje de marcas que se utiliza para estructurar contenido en la web. Permite definir la estructura y el significado de una página web mediante etiquetas.</p>
+        </section>
+
+        <section id="css">
+            <h2>CSS</h2>
+            <p>CSS (Cascading Style Sheets) es un lenguaje de marcas utilizado para dar estilo y presentación a documentos HTML. Permite controlar la apariencia de los elementos en una página web.</p>
+        </section>
+
+        <section id="xml">
+            <h2>XML</h2>
+            <p>XML (eXtensible Markup Language) es un lenguaje de marcas que se utiliza para almacenar y transportar datos. Es extensible y permite definir etiquetas personalizadas para estructurar información de manera jerárquica.</p>
+        </section>
+
+        <section id="xpath">
+            <h2>XPath</h2>
+            <p>XPath es un lenguaje de marcas utilizado para navegar y consultar documentos XML. Permite seleccionar nodos específicos dentro de una estructura XML utilizando rutas de acceso.</p>
+        </section>
+    </article>
+
+    <aside>
+        <h2>Anuncios</h2>
+        <div class="anuncio">
+            <p>¡Descubre las maravillas del diseño web con HTML y CSS!</p>
+        </div>
+        <div class="anuncio">
+            <p>Explora el poder de XPath para procesar datos en documentos XML.</p>
+        </div>
+    </aside>
+
+    <footer>
+        <p>&copy; 2023 Lenguajes de Marcas</p>
+    </footer>
+</body>
+</html>
