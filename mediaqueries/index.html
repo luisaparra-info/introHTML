@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="(cc) 3con14" />
+    <title>GRID Layout</title>
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in;
+}
+html {
+    font: 16px sans-serif;
+    background-color: tan;
+}
+
+body * { padding: 0.5em; }
+
+body:after {
+    content: '· GRID Layout ·';
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: rotate(-45deg) scale(5);
+    color: rgba(255, 0, 0,0.1);
+    font-weight: 900;
+    z-index: -1;
+}
+
+header  { 
+    grid-area: cabecera;
+    background-color: rgba(0,0,0,0.1);
+}
+nav.menu     { 
+    grid-area: menu;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: flex-end;
+}
+.item-menu {
+    margin-right: 0.5em;
+    background-color: rgba(255,128,0,0.1);
+}
+.rayas {
+    font-size: 3em;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 25px;
+}
+.rayas:hover {
+    color: #fff;
+    cursor: pointer;
+}
+nav.mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    min-height: 100vh;
+    width: 150px;
+    transform: translateX(-150px);
+    background-color: rgba(0,0,0,0.7);
+}
+.item-mobile {
+    border-bottom: 1px solid #666;
+}
+nav.mostrar {
+    transform: translateX(0px);
+}
+section { 
+    grid-area: contenido;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+}
+article {
+    flex: 1 50%;
+}
+aside   { 
+    grid-area: lateral;
+    background-color: rgba(0,0,0,0.1);
+}
+footer  { 
+    grid-area: pie;
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+body {
+    max-width  : 1280px;
+    width      : calc(100% - 2em);
+    min-height : calc(100vh - 2em);
+    margin     : 1em auto;
+
+    display               : grid;
+    grid-template-columns : 1fr 1fr 5px 1fr;
+    grid-template-rows    : 100px 50px auto 50px;
+    grid-gap              : 0.5em;
+    grid-template-areas   :
+        "cabecera  cabecera  cabecera  cabecera"
+        "menu      menu      menu      menu"    
+        "contenido contenido .         lateral"
+        "pie       pie       pie       pie"
+    ;
+}
+
+/* RESPONSIVE DESING
+    - 1º) Desktops
+    - 2º) Tablets
+    - 3º) Smartphones
+    (dese ser este orden en CSS)
+ */
+
+/* Punto de ruptura: TABLETS
+//////////////////////////// */
+@media all and (max-width: 768px){
+    body {
+        grid-template-columns : 75% 25%;
+        grid-template-rows    : 100px 50px 4fr 50px;
+        grid-template-areas   :
+            "cabecera  cabecera"
+            "menu      menu"    
+            "contenido lateral"
+            "pie       pie"
+        ;        
+    }
+    article {
+        flex: 1 100%;
+    } 
+
+}
+/* Punto de ruptura: SMARTPHONES
+//////////////////////////////// */
+@media all and (max-width: 568px){
+    body {
+        grid-template-columns : 100%;
+        grid-template-rows    : 100px 4fr 1fr 50px;
+        grid-template-areas   :
+            "cabecera"
+            "contenido"
+            "lateral"
+            "pie"
+        ;
+    }
+    section {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    article {
+        flex: 1 100%;
+    }
+    nav.menu {
+        display: none;
+    }
+    .rayas {
+        display: block;
+    } 
+}
+    </style>
+
+   
+</head>
+<body>
+<header><h1>Cabecera</h1></header>
+
+<div class="rayas">&equiv;</div>
+<nav class="mobile">
+    <div class="item-mobile">item-01</div>
+    <div class="item-mobile">item-02</div>
+    <div class="item-mobile">item-03</div>
+</nav>
+
+<nav class="menu">
+    <div class="item-menu">item-01</div>
+    <div class="item-menu">item-02</div>
+    <div class="item-menu">item-03</div>
+</nav>
+<section>
+    <article><h2>Artículo #01</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam veniam nulla voluptatibus omnis blanditiis dolorum esse mollitia dolor sed repellendus facere dolorem sit delectus animi, amet magni qui nisi officia.</article>
+    <article><h2>Artículo #02</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam veniam nulla voluptatibus omnis blanditiis dolorum esse mollitia dolor sed repellendus facere dolorem sit delectus animi, amet magni qui nisi officia.</article>
+    <article><h2>Artículo #03</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam veniam nulla voluptatibus omnis blanditiis dolorum esse mollitia dolor sed repellendus facere dolorem sit delectus animi, amet magni qui nisi officia.</article>
+    <article><h2>Artículo #04</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam veniam nulla voluptatibus omnis blanditiis dolorum esse mollitia dolor sed repellendus facere dolorem sit delectus animi, amet magni qui nisi officia.</article>
+</section>
+<aside>
+    <h4>Barra lateral</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quis iste, magni similique saepe nesciunt quia totam aspernatur dolorum voluptatem blanditiis quidem officiis repudiandae voluptate delectus quae! Asperiores, voluptatibus, voluptas!</p>
+    </aside>
+<footer>Pie</footer>
+<script>
+    var rayas  = document.querySelector('.rayas');
+rayas.addEventListener('click',function(){
+var mobile =  document.querySelector('.mobile');
+mobile.classList.toggle('mostrar');
+});
+</script>
+</body>
+</html>
+    
